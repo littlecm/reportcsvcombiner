@@ -6,7 +6,7 @@ def main():
     st.title('CSV Merger App')
 
     # Instructions
-    st.write('Upload multiple CSV files. The app will combine them into a single CSV file.')
+    st.write('Please upload multiple CSV files. The app will combine them into a single CSV file.')
 
     # File uploader allows user to add multiple files
     uploaded_files = st.file_uploader("Choose CSV files", accept_multiple_files=True, type=['csv'])
@@ -27,15 +27,20 @@ def main():
         st.write('Combined DataFrame:')
         st.dataframe(combined_df)
 
-        # Button to let user save the combined CSV
+        # Input for custom file name
+        output_file_name = st.text_input('Enter desired output file name', 'combined.csv')
+        if not output_file_name.endswith('.csv'):
+            output_file_name += '.csv'
+
+        # Button to let user save the combined CSV with the specified file name
         if st.button('Save Combined CSV'):
             # Convert DataFrame to CSV
             combined_csv = combined_df.to_csv(index=False).encode('utf-8')
 
-            # Download button for the combined CSV
+            # Download button for the combined CSV with custom file name
             st.download_button(label="Download combined CSV",
                                data=combined_csv,
-                               file_name='combined.csv',
+                               file_name=output_file_name,
                                mime='text/csv')
 
 if __name__ == "__main__":
