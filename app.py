@@ -3,7 +3,7 @@ import pandas as pd
 
 def main():
     # Title of the application
-    st.title('CSV Merger App')
+    st.title('GMG Digital CSV Merger App')
 
     # Instructions
     st.write('Please upload multiple CSV files. The app will combine them into a single CSV file.')
@@ -42,7 +42,6 @@ def main():
                                data=combined_csv,
                                file_name=output_file_name,
                                mime='text/csv')
-
     # Add footer widget
     st.markdown("""---""")
     col1, col2 = st.columns([1, 3])
@@ -53,7 +52,8 @@ def main():
     with col2:
         st.write("""
         **Developed by**
-        *Garber Management Digital Marketing Team*
+        *Garber Management Digital Marketing Team*<br>
+        Because even your CSV files need a little love.
         """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
