@@ -52,7 +52,7 @@ def main():
 
     with col2:
         st.write("""
-        **Designed by**
+        **Developed by**
         *Garber Management Digital Marketing Team*
         """, unsafe_allow_html=True)
 
